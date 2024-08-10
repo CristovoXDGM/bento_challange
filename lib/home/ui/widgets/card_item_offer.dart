@@ -3,7 +3,16 @@ import 'package:bento_food_challange/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CardItemOffer extends StatelessWidget {
-  const CardItemOffer({super.key});
+  const CardItemOffer({
+    super.key,
+    this.dealTitle = "Top deal !",
+    this.title = "Fresh avocado",
+    this.subtitle = "up to 15% off",
+  });
+
+  final String dealTitle;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +28,7 @@ class CardItemOffer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Top deal !",
+                  dealTitle,
                   style: TextStyle(
                     fontFamily: "Inter",
                     fontSize: 14,
@@ -29,17 +38,31 @@ class CardItemOffer extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                TitleText(text: "Fresh avocado".toUpperCase()),
+                TitleText(text: title.toUpperCase()),
                 const SizedBox(
                   height: 4,
                 ),
-                TitleText(text: "up to 15% off".toUpperCase()),
+                TitleText(text: subtitle.toUpperCase()),
                 const SizedBox(
                   height: 4,
                 ),
+                FilledButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(AppColors.mainTextColor)),
+                  child: Text(
+                    "Shop Now",
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: AppColors.primaryActive,
+                    ),
+                  ),
+                )
               ],
             ),
-          )
+          ),
         ],
       ),
     );

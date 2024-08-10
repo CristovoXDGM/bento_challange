@@ -1,5 +1,6 @@
 import 'package:bento_food_challange/home/ui/components/shop_offers_carousel.dart';
 import 'package:bento_food_challange/home/ui/components/simple_card_component.dart';
+import 'package:bento_food_challange/home/ui/components/special_offers_list.dart';
 import 'package:bento_food_challange/home/ui/widgets/card_item_offer.dart';
 import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final sizer = MediaQuery.of(context).size;
-
+    Animate.restartOnHotReload = true;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -110,8 +111,12 @@ class _HomePageState extends State<HomePage> {
               const ShopOffersCarousel(
                 carouselWidgets: [
                   CardItemOffer(),
-                  CardItemOffer(),
-                  CardItemOffer(),
+                  CardItemOffer(
+                    title: "Fresh ham",
+                  ),
+                  CardItemOffer(
+                    title: "Fresh cabage",
+                  ),
                 ],
               ),
               const SizedBox(
@@ -124,14 +129,52 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               Container(
-                height: 100,
+                height: 130,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: const ShopCategoriesList(),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    children: [
+                      const TitleText(text: "Today's Special"),
+                      const Spacer(),
+                      GestureDetector(
+                        child: Text(
+                          "See all",
+                          style: TextStyle(
+                            fontFamily: "Inter",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: AppColors.primaryActive,
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
+              const SizedBox(
+                height: 16,
+              ),
+              const SizedBox(height: 400, child: SpecialOffersList()),
+              const SizedBox(
+                height: 80,
+              ),
             ],
           ),
         ),
-      ).animate().fadeIn(begin: 0, duration: const Duration(milliseconds: 800)),
+      )
+          .animate()
+          .fadeIn(
+            begin: 0,
+            duration: const Duration(milliseconds: 600),
+          )
+          .slide(
+            duration: const Duration(milliseconds: 800),
+            curve: Curves.easeOut,
+          ),
     );
   }
 }

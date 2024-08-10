@@ -5,7 +5,7 @@ import 'carousel_indicartor.dart';
 class ShopOffersCarousel extends StatefulWidget {
   const ShopOffersCarousel({
     super.key,
-    this.carouselHeight = 160,
+    this.carouselHeight = 180,
     this.carouselWidgets = const [],
   });
   final double carouselHeight;
@@ -20,7 +20,7 @@ class _ShopOffersCarouselState extends State<ShopOffersCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    // final size = MediaQuery.sizeOf(context);
 
     return Column(
       children: [

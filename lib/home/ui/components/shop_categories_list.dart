@@ -18,14 +18,19 @@ class _ShopCategoriesListState extends State<ShopCategoriesList> {
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8),
-          decoration: BoxDecoration(
-            color: AppColors.primary,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          width: 100,
-          height: 100,
+        return Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              width: 100,
+              height: 100,
+            ),
+            const Text("Category")
+          ],
         );
       },
     );
