@@ -1,7 +1,13 @@
+import 'package:bento_food_challange/home/ui/components/shop_offers_carousel.dart';
 import 'package:bento_food_challange/home/ui/components/simple_card_component.dart';
+import 'package:bento_food_challange/home/ui/widgets/card_item_offer.dart';
+import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
+import '../components/shop_categories_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -69,6 +75,7 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           padding: EdgeInsets.zero,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
               const SizedBox(
@@ -96,11 +103,35 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const ShopOffersCarousel(
+                carouselWidgets: [
+                  CardItemOffer(),
+                  CardItemOffer(),
+                  CardItemOffer(),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: TitleText(text: "Shop by category")),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 100,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: const ShopCategoriesList(),
               )
             ],
           ),
         ),
-      ),
+      ).animate().fadeIn(begin: 0, duration: const Duration(milliseconds: 800)),
     );
   }
 }
