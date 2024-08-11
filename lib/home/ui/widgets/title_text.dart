@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../shared/constants/app_colors.dart';
 
 class TitleText extends StatelessWidget {
-  const TitleText({super.key, required this.text});
+  const TitleText({super.key, required this.text, this.fontSize = 19});
 
   final String text;
-
+  final double fontSize;
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -14,7 +14,7 @@ class TitleText extends StatelessWidget {
       style: TextStyle(
         fontFamily: "Inter",
         fontWeight: FontWeight.w900,
-        fontSize: 19,
+        fontSize: fontSize,
         color: AppColors.mainTextColor,
       ),
     );

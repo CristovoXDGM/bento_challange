@@ -4,6 +4,7 @@ import 'package:bento_food_challange/home/ui/components/special_offers_list.dart
 import 'package:bento_food_challange/home/ui/widgets/card_item_offer.dart';
 import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
+import 'package:bento_food_challange/shared/constants/png_assets.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -24,6 +25,11 @@ class _HomePageState extends State<HomePage> {
     Animate.restartOnHotReload = true;
     return Scaffold(
       backgroundColor: Colors.white,
+      // bottomNavigationBar: CustomPaint(
+      //   // painter: CustomBottomNavBar(),
+      //   foregroundPainter: CustomBottomNavBar(),
+      //   size: const Size.fromHeight(120),
+      // ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         leadingWidth: sizer.width,
@@ -91,6 +97,10 @@ class _HomePageState extends State<HomePage> {
                       child: SimpleCardComponent(
                         title: "Order Again",
                         onTap: () {},
+                        rightIcon: Image.asset(
+                          PngAssets.vegetables,
+                          height: 70,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -100,6 +110,10 @@ class _HomePageState extends State<HomePage> {
                       child: SimpleCardComponent(
                         title: "Local Shop",
                         onTap: () {},
+                        rightIcon: Image.asset(
+                          PngAssets.store_869432,
+                          height: 70,
+                        ),
                       ),
                     )
                   ],

@@ -24,15 +24,16 @@ class SimpleCardComponent extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        clipBehavior: Clip.hardEdge,
         height: height,
         width: width,
         decoration: BoxDecoration(
             color: AppColors.primaryActive, borderRadius: BorderRadius.circular(16)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            Positioned(
+              top: 22,
+              left: 20,
               child: Text(
                 title.replaceAll(" ", "\n").toUpperCase(),
                 softWrap: true,
@@ -45,7 +46,7 @@ class SimpleCardComponent extends StatelessWidget {
                 ),
               ),
             ),
-            rightIcon
+            Positioned(right: 0, bottom: -2, child: rightIcon)
           ],
         ),
       ),

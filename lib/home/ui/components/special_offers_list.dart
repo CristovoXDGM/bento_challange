@@ -1,5 +1,6 @@
 import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
+import 'package:bento_food_challange/shared/constants/png_assets.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,11 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
+    const specialOffers = PngAssets.specialOffersList;
+
     return GridView.builder(
       shrinkWrap: true,
+      itemCount: specialOffers.length,
       physics: const NeverScrollableScrollPhysics(),
       clipBehavior: Clip.none,
       padding: const EdgeInsets.all(20),
@@ -60,12 +64,13 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
                     ],
                   ),
                 ),
-                const Positioned(
-                  top: 40,
+                Positioned(
+                  top: 30,
                   left: 0,
                   right: 0,
-                  child: FlutterLogo(
-                    size: 60,
+                  child: Image.asset(
+                    specialOffers[index],
+                    height: 100,
                   ),
                 ),
                 Positioned(
@@ -83,7 +88,13 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
                     child: Column(
                       children: [
                         const Row(
-                          children: [TitleText(text: "Red berry"), Spacer()],
+                          children: [
+                            TitleText(
+                              text: "Red berry",
+                              fontSize: 14,
+                            ),
+                            Spacer(),
+                          ],
                         ),
                         Row(
                           children: [
@@ -91,7 +102,7 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
                               "\$8.15",
                               style: TextStyle(
                                 fontFamily: "Inter",
-                                fontSize: 18,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.mainTextColor,
                               ),
@@ -103,7 +114,7 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
                               "\$8.15",
                               style: TextStyle(
                                 fontFamily: "Inter",
-                                fontSize: 14,
+                                fontSize: 12,
                                 decoration: TextDecoration.lineThrough,
                                 decorationColor: AppColors.greyTextColor,
                                 color: AppColors.greyTextColor,
