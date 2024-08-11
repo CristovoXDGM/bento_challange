@@ -31,6 +31,8 @@ class _HomePageState extends State<HomePage> {
       //   size: const Size.fromHeight(120),
       // ),
       appBar: AppBar(
+        elevation: 0,
+        surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         leadingWidth: sizer.width,
         leading: Padding(
@@ -122,16 +124,12 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 20,
               ),
-              const ShopOffersCarousel(
-                carouselWidgets: [
-                  CardItemOffer(),
-                  CardItemOffer(
-                    title: "Fresh ham",
-                  ),
-                  CardItemOffer(
-                    title: "Fresh cabage",
-                  ),
-                ],
+              ShopOffersCarousel(
+                carouselWidgets: PngAssets.offersList
+                    .map((item) => CardItemOffer(
+                          imagePath: item,
+                        ))
+                    .toList(),
               ),
               const SizedBox(
                 height: 20,

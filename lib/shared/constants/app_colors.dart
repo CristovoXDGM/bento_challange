@@ -10,6 +10,7 @@ class AppColors {
   static final secondaryActive = fromHex("#F7FAEB");
   static final secondaryDisabled = fromHex("#8BAA38");
 
+  static final lightRed = fromHex("#FF6F6A");
   static final mainTextColor = fromHex("#0F345A");
   static final greyTextColor = fromHex("#808892");
   static final disabledIndicatorColor = fromHex("#C8DAD2");

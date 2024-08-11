@@ -13,7 +13,7 @@ class TitleText extends StatelessWidget {
       text,
       style: TextStyle(
         fontFamily: "Inter",
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.bold,
         fontSize: fontSize,
         color: AppColors.mainTextColor,
       ),

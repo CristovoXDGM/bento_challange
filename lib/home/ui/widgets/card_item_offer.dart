@@ -3,20 +3,22 @@ import 'package:bento_food_challange/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CardItemOffer extends StatelessWidget {
-  const CardItemOffer({
-    super.key,
-    this.dealTitle = "Top deal !",
-    this.title = "Fresh avocado",
-    this.subtitle = "up to 15% off",
-  });
+  const CardItemOffer(
+      {super.key,
+      this.dealTitle = "Top deal !",
+      this.title = "Fresh avocado",
+      this.subtitle = "up to 15% off",
+      this.imagePath = ""});
 
   final String dealTitle;
   final String title;
   final String subtitle;
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(right: 20),
       color: AppColors.secondary,
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -63,6 +65,17 @@ class CardItemOffer extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            width: 4,
+          ),
+          imagePath.isEmpty
+              ? const SizedBox()
+              : Flexible(
+                  child: Image.asset(
+                    imagePath,
+                    height: 160,
+                  ),
+                )
         ],
       ),
     );

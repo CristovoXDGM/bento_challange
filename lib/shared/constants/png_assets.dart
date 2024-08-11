@@ -35,19 +35,20 @@ class PngAssets {
     pineapple
   ];
 
+  static const offersList = [cutAvocado, cutPineapple, maracujaCut, orange, tomatoeCut];
+
   static const specialOffersList = [
     appleFruit,
-    avocadoFruit,
-    bannatwo,
-    pineapple,
-    couveFlor,
-    greenLeaf,
     tomatoe,
-    couve
+    avocadoFruit,
+    couveFlor,
+    pineapple,
+    greenLeaftTwo,
+    cabbage
   ];
 
   static const couveFlor = "assets/images/vegetables/couve_flor.png";
-  static const couve = "assets/images/vegetables/couve.png";
+  static const cabbage = "assets/images/vegetables/couve.png";
   static const greenLeaf = "assets/images/vegetables/green_leaf.png";
   static const greenLeaftTwo = "assets/images/vegetables/green_leaft_two.png";
   static const tomatoeCut = "assets/images/vegetables/tomatoe_cut.png";
@@ -55,7 +56,7 @@ class PngAssets {
 
   static const vegetablesList = [
     couveFlor,
-    couve,
+    cabbage,
     greenLeaf,
     greenLeaftTwo,
     tomatoeCut,
