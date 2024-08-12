@@ -1,3 +1,4 @@
+import 'package:bento_food_challange/home/ui/components/shop_offers_carousel.dart';
 import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/mocked_data.dart';
 import 'package:boxicons/boxicons.dart';
@@ -18,6 +19,21 @@ class FoodInfoPage extends StatefulWidget {
 class _FoodInfoPageState extends State<FoodInfoPage> {
   bool favorited = false;
 
+  final iconsLsit = [
+    Icon(
+      Boxicons.bx_dish,
+      color: AppColors.mainTextColor,
+    ),
+    Icon(
+      Boxicons.bx_cool,
+      color: AppColors.mainTextColor,
+    ),
+    Icon(
+      Icons.food_bank,
+      color: AppColors.mainTextColor,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,10 +46,19 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: GestureDetector(
-            child: const Icon(
-              Boxicons.bx_chevron_left,
-              size: 30,
-            ),
+            child: Container(
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Boxicons.bx_chevron_left,
+                size: 35,
+              ),
+            ).animate().slideX(
+                  begin: -2,
+                ),
             onTap: () {
               context.pop();
             },
@@ -42,18 +67,27 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: IconButton(
-              onPressed: () {
+            child: GestureDetector(
+              onTap: () {
                 favorited = !favorited;
                 setState(() {});
               },
-              icon: favorited
-                  ? Icon(
-                      Boxicons.bxs_heart,
-                      color: AppColors.lightRed,
-                    )
-                  : const Icon(Boxicons.bx_heart),
-            ),
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  shape: BoxShape.circle,
+                ),
+                child: favorited
+                    ? Icon(
+                        Boxicons.bxs_heart,
+                        color: AppColors.lightRed,
+                      )
+                    : const Icon(Boxicons.bx_heart),
+              ),
+            ).animate().slideX(
+                  begin: 2,
+                ),
           ),
         ],
       ),
@@ -61,7 +95,8 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
         height: 130,
         padding: const EdgeInsets.all(20),
         decoration: const BoxDecoration(
-            color: Colors.white, boxShadow: [BoxShadowEffect.defaultValue]),
+            color: Colors.white,
+            boxShadow: [BoxShadow(blurRadius: 2, offset: Offset(0, 2))]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -140,9 +175,22 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Hero(
-                tag: widget.selectedFruitd.title,
-                child: Image.asset(widget.selectedFruitd.imagePath),
+              ShopOffersCarousel(
+                carouselHeight: 300,
+                carouselWidgets: [
+                  Hero(
+                    tag: widget.selectedFruitd.title,
+                    child: Image.asset(widget.selectedFruitd.imagePath),
+                  ),
+                  Hero(
+                    tag: widget.selectedFruitd.title,
+                    child: Image.asset(widget.selectedFruitd.imagePath),
+                  ),
+                  Hero(
+                    tag: widget.selectedFruitd.title,
+                    child: Image.asset(widget.selectedFruitd.imagePath),
+                  ),
+                ],
               ),
               Row(
                 children: [
@@ -152,14 +200,14 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
                   ),
                   const Spacer(),
                   Container(
-                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+                      padding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(100),
                           boxShadow: const [
                             BoxShadow(
                               color: Colors.black26,
-                              blurRadius: 8,
+                              blurRadius: 1,
                             )
                           ]),
                       child: Row(
@@ -169,18 +217,18 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
                         children: [
                           const Icon(
                             Boxicons.bxs_star,
-                            size: 18,
+                            size: 24,
                             color: Colors.amber,
                           ),
                           const SizedBox(
-                            width: 6,
+                            width: 10,
                           ),
                           Text(
                             widget.selectedFruitd.starRate,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontFamily: "Inter",
-                              fontSize: 16,
+                              fontSize: 20,
                               color: AppColors.mainTextColor,
                             ),
                           ),
@@ -206,10 +254,45 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
               Container(
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
-                  color: AppColors.secondary,
+                  color: AppColors.iceWhite,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 height: 120,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: List.generate(
+                    widget.selectedFruitd.foodDetails!.length,
+                    (index) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: AppColors.lightColors[index],
+                            shape: BoxShape.circle,
+                          ),
+                          child: iconsLsit[index],
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          widget.selectedFruitd.foodDetails![index],
+                          style: TextStyle(
+                            fontFamily: "Inter",
+                            color: AppColors.mainTextColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 20,

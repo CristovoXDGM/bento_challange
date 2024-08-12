@@ -20,8 +20,6 @@ class _ShopOffersCarouselState extends State<ShopOffersCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.sizeOf(context);
-
     return Column(
       children: [
         SizedBox(

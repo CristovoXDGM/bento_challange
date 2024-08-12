@@ -6,7 +6,7 @@ class CardItemOffer extends StatelessWidget {
   const CardItemOffer(
       {super.key,
       this.dealTitle = "Top deal !",
-      this.title = "Fresh avocado",
+      this.title = "avocado",
       this.subtitle = "up to 15% off",
       this.imagePath = ""});
 
@@ -34,13 +34,14 @@ class CardItemOffer extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Inter",
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                     color: AppColors.greyTextColor,
                   ),
                 ),
                 const SizedBox(
                   height: 4,
                 ),
-                TitleText(text: title.toUpperCase()),
+                TitleText(text: "Fresh ${title.toUpperCase()}"),
                 const SizedBox(
                   height: 4,
                 ),
@@ -51,7 +52,8 @@ class CardItemOffer extends StatelessWidget {
                 FilledButton(
                   onPressed: () {},
                   style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(AppColors.mainTextColor)),
+                    backgroundColor: WidgetStatePropertyAll(AppColors.mainTextColor),
+                  ),
                   child: Text(
                     "Shop Now",
                     style: TextStyle(

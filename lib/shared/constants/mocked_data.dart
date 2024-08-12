@@ -87,20 +87,15 @@ class Price {
   String toJson() => json.encode(toMap());
 }
 
-// final decoded = decodeJsone();
-
-// dynamic decodeJsone() async {
-//   try {
-//     final json = jsonDecode(mockedFruitsData.toString());
-//     return json;
-//   } catch (e) {
-//     print(e);
-//   }
-// }
-
 final fruitListData =
     mockedFruitsData.map((element) => FruitData.fromMap(element)).toList();
 
+const fakeCategories = [
+  {"img": PngAssets.salad, "name": "Vegan"},
+  {"img": PngAssets.fruits, "name": "Fruits"},
+  {"img": PngAssets.juice, "name": "Juices"},
+  {"img": PngAssets.apple, "name": "Gourmet"},
+];
 const mockedFruitsData = [
   {
     "title": "Red Apple",

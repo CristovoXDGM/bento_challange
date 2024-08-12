@@ -1,6 +1,7 @@
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
-import 'package:bento_food_challange/shared/constants/png_assets.dart';
 import 'package:flutter/material.dart';
+
+import '../../../shared/constants/mocked_data.dart';
 
 class ShopCategoriesList extends StatefulWidget {
   const ShopCategoriesList({super.key});
@@ -25,26 +26,30 @@ class _ShopCategoriesListState extends State<ShopCategoriesList> {
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: AppColors.iceWhite,
                 borderRadius: BorderRadius.circular(16),
               ),
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               child: Image.asset(
                 fakeCategories[index]["img"]!,
               ),
             ),
-            Text(fakeCategories[index]["name"]!)
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              fakeCategories[index]["name"]!,
+              style: TextStyle(
+                fontFamily: "Inter",
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: AppColors.mainTextColor,
+              ),
+            )
           ],
         );
       },
     );
   }
 }
-
-const fakeCategories = [
-  {"img": PngAssets.salad, "name": "Vegan"},
-  {"img": PngAssets.fruits, "name": "Fruits"},
-  {"img": PngAssets.juice, "name": "Juices"},
-  {"img": PngAssets.apple, "name": "Gourmet"},
-];

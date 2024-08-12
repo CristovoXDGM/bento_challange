@@ -1,9 +1,7 @@
-import 'package:bento_food_challange/home/ui/widgets/title_text.dart';
 import 'package:bento_food_challange/shared/constants/app_colors.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:signals/signals_flutter.dart';
 
 import '../../../shared/constants/mocked_data.dart';
 
@@ -15,12 +13,8 @@ class SpecialOffersList extends StatefulWidget {
 }
 
 class _SpecialOffersListState extends State<SpecialOffersList> {
-  final colors = <Color>[].toSignal();
-
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
-
     return GridView.builder(
       shrinkWrap: true,
       itemCount: fruitListData.length,
@@ -34,131 +28,136 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
         mainAxisExtent: 200,
       ),
       itemBuilder: (context, index) {
-        // _getDominantColor(specialOffers[index]);
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: GestureDetector(
-            onTap: () {
-              context.push("/food-info", extra: fruitListData[index]);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.secondaryHover,
-              ),
-              width: 400,
-              height: 800,
-              child: Stack(
-                children: [
-                  Positioned(
-                    right: 10,
-                    top: 10,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
+        return GestureDetector(
+          onTap: () {
+            context.push("/food-info", extra: fruitListData[index]);
+          },
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: AppColors.secondaryHover.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            width: 400,
+            height: 800,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 10,
+                  top: 10,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Boxicons.bxs_star,
+                        size: 14,
+                        color: Colors.amber,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        fruitListData[index].starRate,
+                        style: TextStyle(
+                          fontFamily: "Inter",
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.mainTextColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 30,
+                  left: 0,
+                  right: 0,
+                  child: Hero(
+                    tag: fruitListData[index].title,
+                    child: Image.asset(
+                      fruitListData[index].imagePath,
+                      height: 100,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  child: Container(
+                    clipBehavior: Clip.antiAlias,
+                    padding: const EdgeInsetsDirectional.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                    width: 100,
+                    child: Column(
                       children: [
-                        const Icon(
-                          Boxicons.bxs_star,
-                          size: 14,
-                          color: Colors.amber,
+                        Row(
+                          children: [
+                            Text(
+                              fruitListData[index].title,
+                              style: TextStyle(
+                                fontFamily: "Inter",
+                                fontSize: 16,
+                                color: AppColors.mainTextColor,
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
                         ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          fruitListData[index].starRate,
-                          style: TextStyle(
-                            fontFamily: "Inter",
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.mainTextColor,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              fruitListData[index].price.formatPriceWithDiscount(),
+                              style: TextStyle(
+                                fontFamily: "Inter",
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.mainTextColor,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              fruitListData[index].price.formatedPrice(),
+                              style: TextStyle(
+                                fontFamily: "Inter",
+                                fontSize: 12,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColors.greyTextColor,
+                                color: AppColors.greyTextColor,
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
                         ),
                       ],
                     ),
                   ),
-                  Positioned(
-                    top: 30,
-                    left: 0,
-                    right: 0,
-                    child: Hero(
-                      tag: fruitListData[index].title,
-                      child: Image.asset(
-                        fruitListData[index].imagePath,
-                        height: 100,
-                        fit: BoxFit.contain,
+                ),
+                Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryActive,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomRight: Radius.circular(8),
                       ),
                     ),
+                    height: 28,
+                    width: 28,
+                    child: const Icon(Boxicons.bx_plus),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    child: Container(
-                      padding: const EdgeInsetsDirectional.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-                      width: 100,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              TitleText(
-                                text: fruitListData[index].title,
-                                fontSize: 14,
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                fruitListData[index].price.formatPriceWithDiscount(),
-                                style: TextStyle(
-                                  fontFamily: "Inter",
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.mainTextColor,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                fruitListData[index].price.formatedPrice(),
-                                style: TextStyle(
-                                  fontFamily: "Inter",
-                                  fontSize: 12,
-                                  decoration: TextDecoration.lineThrough,
-                                  decorationColor: AppColors.greyTextColor,
-                                  color: AppColors.greyTextColor,
-                                ),
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 10,
-                    right: 10,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryActive,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(8), bottomRight: Radius.circular(8)),
-                      ),
-                      height: 28,
-                      width: 28,
-                      child: const Icon(Boxicons.bx_plus),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

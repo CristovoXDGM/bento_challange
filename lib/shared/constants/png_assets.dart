@@ -18,7 +18,7 @@ class PngAssets {
   static const cutAvocado = "assets/images/fruits/cut_avocado.png";
   static const cutPineapple = "assets/images/fruits/cut_pineapple.png";
   static const kiwiCut = "assets/images/fruits/kiwi_cut.png";
-  static const maracujaCut = "assets/images/fruits/maracuja_cut.png";
+  static const jackfruit = "assets/images/fruits/maracuja_cut.png";
   static const orange = "assets/images/fruits/orange.png";
   static const pineapple = "assets/images/fruits/pineapple.png";
 
@@ -30,12 +30,18 @@ class PngAssets {
     cutAvocado,
     cutPineapple,
     kiwiCut,
-    maracujaCut,
+    jackfruit,
     orange,
     pineapple
   ];
 
-  static const offersList = [cutAvocado, cutPineapple, maracujaCut, orange, tomatoeCut];
+  static const offersList = [
+    {"image": cutAvocado, "name": "Avocado"},
+    {"image": cutPineapple, "name": "Pineapple"},
+    {"image": jackfruit, "name": "Jackfruit"},
+    {"image": orange, "name": "orange"},
+    {"image": tomatoeCut, "name": "Tomatoe"}
+  ];
 
   static const specialOffersList = [
     appleFruit,
