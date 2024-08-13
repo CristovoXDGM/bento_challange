@@ -2,12 +2,14 @@
 import 'dart:convert';
 
 import 'package:bento_food_challange/shared/constants/png_assets.dart';
+import 'package:flutter/material.dart';
 
 class FruitData {
   final String title;
   final String shopName;
   final String starRate;
   final String details;
+  final Color backgroundColor;
   final String imagePath;
   final Price price;
 
@@ -20,6 +22,7 @@ class FruitData {
     required this.details,
     required this.price,
     required this.imagePath,
+    required this.backgroundColor,
     this.foodDetails,
   });
 
@@ -29,6 +32,7 @@ class FruitData {
       'shopName': shopName,
       'starRate': starRate,
       'details': details,
+      'backgroundColor': backgroundColor,
       'price': price.toMap(),
       "imagePath": imagePath,
       'foodDetails': foodDetails,
@@ -42,6 +46,7 @@ class FruitData {
       starRate: map['starRate'] ?? "4.5",
       details: map['details'] as String,
       price: Price.fromMap(map),
+      backgroundColor: map["backgroundColor"],
       imagePath: map["imagePath"],
       foodDetails: map['foodDetails'] != null
           ? List<String>.from(
@@ -96,20 +101,22 @@ const fakeCategories = [
   {"img": PngAssets.juice, "name": "Juices"},
   {"img": PngAssets.apple, "name": "Gourmet"},
 ];
-const mockedFruitsData = [
+final mockedFruitsData = [
   {
-    "title": "Red Apple",
-    "shopName": "Farmer's Market",
-    "details": "Crisp and juicy, perfect for snacking",
-    "imagePath": PngAssets.appleFruit,
-    "foodDetails": ["Sweet", "Red", "Crisp"],
-    "price": "1.99"
+    "title": "Banana",
+    "shopName": "Tropical Fruits",
+    "details": "Yellow and sweet, perfect for breakfast",
+    "imagePath": PngAssets.bannatwo,
+    "backgroundColor": Colors.yellow.withOpacity(0.1),
+    "foodDetails": ["Yellow", "Sweet", "Potassium-rich"],
+    "price": "0.79"
   },
   {
     "title": "Green leaf",
     "shopName": "Green Corner",
     "details": "Fresh and leafy",
     "imagePath": PngAssets.greenLeaftTwo,
+    "backgroundColor": Colors.green.withOpacity(0.1),
     "foodDetails": ["Leafy", "Green", "Healthy"],
     "price": "2.49"
   },
@@ -117,6 +124,7 @@ const mockedFruitsData = [
     "title": "Red Tomatoe",
     "shopName": "Tomatoe world",
     "details": "From good farmers",
+    "backgroundColor": Colors.red.withOpacity(0.1),
     "imagePath": PngAssets.tomatoe,
     "foodDetails": ["Red fruit", "Delicious", "Clean"],
     "price": "19.99"
@@ -126,22 +134,25 @@ const mockedFruitsData = [
     "shopName": "Fresh Corner",
     "details": "100% pure orange",
     "imagePath": PngAssets.orange,
+    "backgroundColor": Colors.orange.withOpacity(0.1),
     "foodDetails": ["Orange", "Juicy", "Refreshing"],
     "price": "3.99"
   },
   {
-    "title": "Banana",
-    "shopName": "Tropical Fruits",
-    "details": "Yellow and sweet, perfect for breakfast",
-    "imagePath": PngAssets.bannatwo,
-    "foodDetails": ["Yellow", "Sweet", "Potassium-rich"],
-    "price": "0.79"
+    "title": "Red Apple",
+    "shopName": "Farmer's Market",
+    "details": "Crisp and juicy, perfect for snacking",
+    "imagePath": PngAssets.appleFruit,
+    "backgroundColor": Colors.red.withOpacity(0.2),
+    "foodDetails": ["Sweet", "Red", "Crisp"],
+    "price": "1.99"
   },
   {
     "title": "Cabbage",
     "shopName": "Brazilian market",
     "details": "Crispy and nice",
     "imagePath": PngAssets.cabbage,
+    "backgroundColor": Colors.green.withOpacity(0.1),
     "foodDetails": ["Good cabbage", "Clean", "Healthy"],
     "price": "8.99"
   }

@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
                         .map((item) => CardItemOffer(
                               imagePath: item["image"]!,
                               title: item["name"]!,
+                              backgroundColor: item["backgroundColor"],
                             ))
                         .toList(),
                   ),

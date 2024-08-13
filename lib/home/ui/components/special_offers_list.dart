@@ -35,7 +35,7 @@ class _SpecialOffersListState extends State<SpecialOffersList> {
           child: Container(
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              color: AppColors.secondaryHover.withOpacity(0.6),
+              color: fruitListData[index].backgroundColor,
               borderRadius: BorderRadius.circular(14),
             ),
             width: 400,

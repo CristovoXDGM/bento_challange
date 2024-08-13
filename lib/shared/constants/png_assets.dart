@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class PngAssets {
   static const vegetables = "assets/images/001-fruits-and-vegetables.png";
   static const avocado = "assets/images/002-avocado.png";
@@ -35,12 +37,32 @@ class PngAssets {
     pineapple
   ];
 
-  static const offersList = [
-    {"image": cutAvocado, "name": "Avocado"},
-    {"image": cutPineapple, "name": "Pineapple"},
-    {"image": jackfruit, "name": "Jackfruit"},
-    {"image": orange, "name": "orange"},
-    {"image": tomatoeCut, "name": "Tomatoe"}
+  static final List offersList = [
+    {
+      "image": cutAvocado,
+      "name": "Avocado",
+      "backgroundColor": Colors.green.withOpacity(0.1),
+    },
+    {
+      "image": cutPineapple,
+      "name": "Pineapple",
+      "backgroundColor": Colors.yellow.withOpacity(0.1),
+    },
+    {
+      "image": jackfruit,
+      "name": "Jackfruit",
+      "backgroundColor": Colors.yellow.withOpacity(0.1),
+    },
+    {
+      "image": orange,
+      "name": "orange",
+      "backgroundColor": Colors.orange.withOpacity(0.1),
+    },
+    {
+      "image": tomatoeCut,
+      "name": "Tomatoe",
+      "backgroundColor": Colors.red.withOpacity(0.1),
+    }
   ];
 
   static const specialOffersList = [

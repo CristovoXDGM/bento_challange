@@ -8,18 +8,20 @@ class CardItemOffer extends StatelessWidget {
       this.dealTitle = "Top deal !",
       this.title = "avocado",
       this.subtitle = "up to 15% off",
-      this.imagePath = ""});
+      this.imagePath = "",
+      this.backgroundColor});
 
   final String dealTitle;
   final String title;
   final String subtitle;
   final String imagePath;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(right: 20),
-      color: AppColors.secondary,
+      color: backgroundColor ?? AppColors.secondary,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
