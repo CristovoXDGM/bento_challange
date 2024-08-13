@@ -15,33 +15,55 @@ class CustomBottomNavigationBarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     canvas.save();
-
     Path path_0 = Path();
-    path_0.moveTo(0, size.height * 0.6367188);
-    path_0.cubicTo(0, size.height * 0.8373516, size.width * 0.04673120, size.height,
-        size.width * 0.1043771, size.height);
-    path_0.lineTo(size.width * 0.8956229, size.height);
+    path_0.moveTo(size.width, size.height * 0.9511531);
+    path_0.lineTo(size.width, size.height * 0.9511531);
+    path_0.lineTo(size.width, size.height * 0.3228401);
+    path_0.lineTo(size.width * 0.5993801, size.height * 0.3228401);
+    path_0.quadraticBezierTo(size.width * 0.5877495, size.height * 0.3005446,
+        size.width * 0.5796745, size.height * 0.2594954);
     path_0.cubicTo(
-      size.width,
-      size.height,
-      size.width,
-      size.height,
-      size.width,
-      size.height,
-    );
-    path_0.lineTo(size.width, size.height * 0.2734375);
-    path_0.lineTo(size.width * 0.6015713, size.height * 0.2734375);
-    path_0.quadraticBezierTo(size.width * 0.56, 0, size.width * 0.4971942, 0);
-    path_0.quadraticBezierTo(size.width * 0.43, 0, size.width * 0.39, size.height * 0.27);
-    path_0.lineTo(0, size.height * 0.2734375);
-    path_0.lineTo(0, size.height * 0.6367188);
+        size.width * 0.5715996,
+        size.height * 0.2184463,
+        size.width * 0.5565257,
+        size.height * 0.1600537,
+        size.width * 0.5489893,
+        size.height * 0.1396541);
+    path_0.cubicTo(
+        size.width * 0.5414529,
+        size.height * 0.1192544,
+        size.width * 0.5214111,
+        size.height * 0.08144514,
+        size.width * 0.4938051,
+        size.height * 0.08144514);
+    path_0.cubicTo(
+        size.width * 0.4662002,
+        size.height * 0.08144514,
+        size.width * 0.4617152,
+        size.height * 0.09249391,
+        size.width * 0.4442505,
+        size.height * 0.1396537);
+    path_0.cubicTo(
+        size.width * 0.4267859,
+        size.height * 0.1868137,
+        size.width * 0.4284004,
+        size.height * 0.2035391,
+        size.width * 0.4162409,
+        size.height * 0.2594954);
+    path_0.cubicTo(
+        size.width * 0.4040803,
+        size.height * 0.3154518,
+        size.width * 0.3998683,
+        size.height * 0.3228404,
+        size.width * 0.3963105,
+        size.height * 0.3228401);
+    path_0.lineTo(size.width * 0.02141328, size.height * 0.3228401);
+    path_0.lineTo(size.width * -2, size.height * 2);
     path_0.close();
 
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
     paint0Fill.color = backgroundColor;
-
     canvas.drawPath(path_0, paint0Fill);
-
     canvas.restore();
   }
 
@@ -61,24 +83,49 @@ class CustomBoxShadowNAvBar extends CustomPainter {
     canvas.save();
 
     Path path_0 = Path();
-    path_0.moveTo(0, size.height * 0.6367188);
-    path_0.cubicTo(0, size.height * 0.8373516, size.width * 0.04673120, size.height,
-        size.width * 0.1043771, size.height);
-    path_0.lineTo(size.width * 0.8956229, size.height);
+    path_0.moveTo(size.width, size.height * 0.9511531);
+    path_0.lineTo(size.width, size.height * 0.9511531);
+    path_0.lineTo(size.width, size.height * 0.3228401);
+    path_0.lineTo(size.width * 0.5993801, size.height * 0.3228401);
+    path_0.quadraticBezierTo(size.width * 0.5877495, size.height * 0.3005446,
+        size.width * 0.5796745, size.height * 0.2594954);
     path_0.cubicTo(
-      size.width,
-      size.height,
-      size.width,
-      size.height,
-      size.width,
-      size.height,
-    );
-    path_0.lineTo(size.width, size.height * 0.2734375);
-    path_0.lineTo(size.width * 0.6015713, size.height * 0.2734375);
-    path_0.quadraticBezierTo(size.width * 0.56, 0, size.width * 0.4971942, 0);
-    path_0.quadraticBezierTo(size.width * 0.43, 0, size.width * 0.39, size.height * 0.27);
-    path_0.lineTo(0, size.height * 0.2734375);
-    path_0.lineTo(0, size.height * 0.6367188);
+        size.width * 0.5715996,
+        size.height * 0.2184463,
+        size.width * 0.5565257,
+        size.height * 0.1600537,
+        size.width * 0.5489893,
+        size.height * 0.1396541);
+    path_0.cubicTo(
+        size.width * 0.5414529,
+        size.height * 0.1192544,
+        size.width * 0.5214111,
+        size.height * 0.08144514,
+        size.width * 0.4938051,
+        size.height * 0.08144514);
+    path_0.cubicTo(
+        size.width * 0.4662002,
+        size.height * 0.08144514,
+        size.width * 0.4617152,
+        size.height * 0.09249391,
+        size.width * 0.4442505,
+        size.height * 0.1396537);
+    path_0.cubicTo(
+        size.width * 0.4267859,
+        size.height * 0.1868137,
+        size.width * 0.4284004,
+        size.height * 0.2035391,
+        size.width * 0.4162409,
+        size.height * 0.2594954);
+    path_0.cubicTo(
+        size.width * 0.4040803,
+        size.height * 0.3154518,
+        size.width * 0.3998683,
+        size.height * 0.3228404,
+        size.width * 0.3963105,
+        size.height * 0.3228401);
+    path_0.lineTo(size.width * 0.02141328, size.height * 0.3228401);
+    path_0.lineTo(size.width * -2, size.height * 2);
     path_0.close();
 
     // Paint paint0Fill = Paint()..style = PaintingStyle.fill;

@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:bento_food_challange/shared/constants/app_colors.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
 import 'custom_cliper_nav_bar.dart';
 import 'custom_nav_item.dart';
 
@@ -28,13 +28,13 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 backgroundColor: Colors.white,
               ),
               painter: CustomBoxShadowNAvBar(),
-              size: const Size.fromHeight(130),
+              size: const Size(double.infinity, 130),
             ),
           ),
           SizedBox(
             height: 120,
             child: Padding(
-              padding: const EdgeInsets.only(right: 30, left: 30, top: 30),
+              padding: const EdgeInsets.only(right: 30, left: 30, top: 40),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -45,6 +45,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     title: "Home",
                     icon: Boxicons.bxs_home,
                     selected: true,
+                  ),
+                  const SizedBox(
+                    width: 8,
                   ),
                   CustomNavItem(
                     onTap: () {},
@@ -59,6 +62,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     title: "Cart",
                     icon: Boxicons.bxs_shopping_bag,
                   ),
+                  const SizedBox(
+                    width: 8,
+                  ),
                   CustomNavItem(
                     onTap: () {},
                     title: "Account",
@@ -69,11 +75,11 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             ),
           ),
           Positioned(
-            bottom: 62,
+            bottom: 60,
             right: 0,
-            left: -4,
+            left: -3,
             child: Container(
-              height: 60,
+              height: 48,
               decoration: BoxDecoration(
                 color: AppColors.mainTextColor,
                 shape: BoxShape.circle,
@@ -81,6 +87,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               child: Icon(
                 Boxicons.bxs_store,
                 color: AppColors.primaryActive,
+                size: 20,
               ),
             ),
           )
