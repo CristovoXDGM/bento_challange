@@ -66,15 +66,15 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ],
-          ),
+          ).animate().slideX(),
         ),
-        actions: const [
-          Padding(
+        actions: [
+          const Padding(
             padding: EdgeInsets.only(right: 20),
             child: CircleAvatar(
               child: Icon(Boxicons.bx_user_circle),
             ),
-          )
+          ).animate().slideX(begin: 2)
         ],
       ),
       body: Stack(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                  ),
+                  ).animate().slide(),
                   const SizedBox(
                     height: 20,
                   ),
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                               backgroundColor: item["backgroundColor"],
                             ))
                         .toList(),
-                  ),
+                  ).animate().slide(),
                   const SizedBox(
                     height: 20,
                   ),
@@ -154,33 +154,36 @@ class _HomePageState extends State<HomePage> {
                     height: 130,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: const ShopCategoriesList(),
-                  ),
+                  ).animate().slideX(),
                   const SizedBox(
                     height: 20,
                   ),
                   Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Row(
-                        children: [
-                          const TitleText(text: "Today's Special"),
-                          const Spacer(),
-                          GestureDetector(
-                            child: Text(
-                              "See all",
-                              style: TextStyle(
-                                fontFamily: "Inter",
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                color: AppColors.primaryActive,
-                              ),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      children: [
+                        const TitleText(text: "Today's Special").animate().slide(),
+                        const Spacer(),
+                        GestureDetector(
+                          child: Text(
+                            "See all",
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: AppColors.primaryActive,
                             ),
-                          )
-                        ],
-                      )),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                   const SizedBox(
                     height: 16,
                   ),
-                  const SizedBox(height: 400, child: SpecialOffersList()),
+                  const SizedBox(height: 400, child: SpecialOffersList())
+                      .animate()
+                      .slideX(),
                   const SizedBox(
                     height: 160,
                   ),

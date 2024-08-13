@@ -14,10 +14,17 @@ class SpecialOffersList extends StatefulWidget {
 
 class _SpecialOffersListState extends State<SpecialOffersList> {
   @override
+  void initState() {
+    super.initState();
+    fruitListData.shuffle();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: fruitListData.length,
+      // itemCount: fruitListData.length,
+      itemCount: 4,
       physics: const NeverScrollableScrollPhysics(),
       clipBehavior: Clip.none,
       padding: const EdgeInsets.all(20),

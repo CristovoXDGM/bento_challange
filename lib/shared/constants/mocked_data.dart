@@ -92,7 +92,7 @@ class Price {
   String toJson() => json.encode(toMap());
 }
 
-final fruitListData =
+var fruitListData =
     mockedFruitsData.map((element) => FruitData.fromMap(element)).toList();
 
 const fakeCategories = [

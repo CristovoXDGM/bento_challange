@@ -11,12 +11,14 @@ class TitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: 1,
+      softWrap: true,
       style: TextStyle(
-        fontFamily: "Inter",
-        fontWeight: FontWeight.bold,
-        fontSize: fontSize,
-        color: AppColors.mainTextColor,
-      ),
+          fontFamily: "Inter",
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize,
+          color: AppColors.mainTextColor,
+          overflow: TextOverflow.fade),
     );
   }
 }

@@ -82,7 +82,7 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
                     ? Icon(
                         Boxicons.bxs_heart,
                         color: AppColors.lightRed,
-                      )
+                      ).animate().shake()
                     : const Icon(Boxicons.bx_heart),
               ),
             ).animate().slideX(
@@ -182,14 +182,8 @@ class _FoodInfoPageState extends State<FoodInfoPage> {
                     tag: widget.selectedFruitd.title,
                     child: Image.asset(widget.selectedFruitd.imagePath),
                   ),
-                  Hero(
-                    tag: widget.selectedFruitd.title,
-                    child: Image.asset(widget.selectedFruitd.imagePath),
-                  ),
-                  Hero(
-                    tag: widget.selectedFruitd.title,
-                    child: Image.asset(widget.selectedFruitd.imagePath),
-                  ),
+                  Image.asset(widget.selectedFruitd.imagePath),
+                  Image.asset(widget.selectedFruitd.imagePath),
                 ],
               ),
               Row(

@@ -4,7 +4,8 @@ class AppColors {
   static final primary = fromHex("#50CE9B");
   static final primaryHover = fromHex("#50CE9B");
   static final primaryActive = fromHex("#51E19B");
-  static final zzprimaryDisabled = fromHex("#0C5940");
+  static final primaryUnselected = fromHex("#AAD7C3");
+  static final primaryDisabled = fromHex("#0C5940");
   static final secondary = fromHex("#F0F5DC");
   static final secondaryHover = fromHex("#DBE8AE");
   static final secondaryActive = fromHex("#F7FAEB");
