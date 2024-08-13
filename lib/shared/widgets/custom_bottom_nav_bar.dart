@@ -5,6 +5,7 @@ import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_cliper_nav_bar.dart';
+import 'custom_nav_item.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({super.key});
@@ -16,12 +17,6 @@ class CustomBottomNavBar extends StatefulWidget {
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    var textStyle = TextStyle(
-      color: AppColors.primary,
-      fontFamily: "Inter",
-    );
-    var iconColor = AppColors.primaryActive;
-
     return SizedBox(
       child: Stack(
         clipBehavior: Clip.none,
@@ -39,93 +34,35 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           SizedBox(
             height: 120,
             child: Padding(
-              padding: const EdgeInsets.only(right: 30, left: 30, top: 20),
+              padding: const EdgeInsets.only(right: 30, left: 30, top: 30),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Boxicons.bxs_home,
-                          color: iconColor,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Home",
-                          style: textStyle,
-                        )
-                      ],
-                    ),
+                  CustomNavItem(
+                    onTap: () {},
+                    title: "Home",
+                    icon: Boxicons.bxs_home,
+                    selected: true,
+                  ),
+                  CustomNavItem(
+                    onTap: () {},
+                    title: "Deals",
+                    icon: Boxicons.bxs_purchase_tag,
                   ),
                   const SizedBox(
-                    width: 30,
+                    width: 80,
                   ),
-                  GestureDetector(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Boxicons.bxs_purchase_tag,
-                          color: iconColor,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Deals",
-                          style: textStyle,
-                        )
-                      ],
-                    ),
+                  CustomNavItem(
+                    onTap: () {},
+                    title: "Cart",
+                    icon: Boxicons.bxs_shopping_bag,
                   ),
-                  const Spacer(),
-                  GestureDetector(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Boxicons.bxs_shopping_bag,
-                          color: iconColor,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Cart",
-                          style: textStyle,
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  GestureDetector(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Boxicons.bxs_user,
-                          color: iconColor,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Account",
-                          style: textStyle,
-                        )
-                      ],
-                    ),
+                  CustomNavItem(
+                    onTap: () {},
+                    title: "Account",
+                    icon: Boxicons.bxs_user,
                   ),
                 ],
               ),
