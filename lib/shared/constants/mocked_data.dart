@@ -8,7 +8,7 @@ class FruitData {
   final String title;
   final String shopName;
   final String starRate;
-  final String details;
+
   final Color backgroundColor;
   final String imagePath;
   final Price price;
@@ -19,7 +19,6 @@ class FruitData {
     required this.title,
     required this.shopName,
     required this.starRate,
-    required this.details,
     required this.price,
     required this.imagePath,
     required this.backgroundColor,
@@ -31,7 +30,6 @@ class FruitData {
       'title': title,
       'shopName': shopName,
       'starRate': starRate,
-      'details': details,
       'backgroundColor': backgroundColor,
       'price': price.toMap(),
       "imagePath": imagePath,
@@ -44,7 +42,6 @@ class FruitData {
       title: map['title'] as String,
       shopName: map['shopName'] as String,
       starRate: map['starRate'] ?? "4.5",
-      details: map['details'] as String,
       price: Price.fromMap(map),
       backgroundColor: map["backgroundColor"],
       imagePath: map["imagePath"],
@@ -95,17 +92,62 @@ class Price {
 var fruitListData =
     mockedFruitsData.map((element) => FruitData.fromMap(element)).toList();
 
+var fakeoffersList = offersList.map((element) => FruitData.fromMap(element)).toList();
+
 const fakeCategories = [
   {"img": PngAssets.salad, "name": "Vegan"},
   {"img": PngAssets.fruits, "name": "Fruits"},
   {"img": PngAssets.juice, "name": "Juices"},
   {"img": PngAssets.apple, "name": "Gourmet"},
 ];
+
+final List offersList = [
+  {
+    "imagePath": PngAssets.cutAvocado,
+    "title": "Avocado",
+    "shopName": "Green Corner",
+    "foodDetails": ["Vegan", "Green", "Healthy"],
+    "backgroundColor": Colors.green.withOpacity(0.1),
+    "price": "6.49"
+  },
+  {
+    "imagePath": PngAssets.cutPineapple,
+    "title": "Pineapple",
+    "shopName": "Tropical Fruits",
+    "foodDetails": ["Fruit", "Nice", "Healthy"],
+    "backgroundColor": Colors.yellow.withOpacity(0.1),
+    "price": "3.49"
+  },
+  {
+    "imagePath": PngAssets.jackfruit,
+    "title": "Jackfruit",
+    "shopName": "Tropical Fruits",
+    "foodDetails": ["Fruit", "Nice", "Healthy"],
+    "backgroundColor": Colors.yellow.withOpacity(0.1),
+    "price": "5.49"
+  },
+  {
+    "imagePath": PngAssets.orange,
+    "title": "orange",
+    "shopName": "Tropical Fruits",
+    "foodDetails": ["Delicious", "Nice", "Healthy"],
+    "backgroundColor": Colors.orange.withOpacity(0.1),
+    "price": "10.49"
+  },
+  {
+    "imagePath": PngAssets.tomatoeCut,
+    "title": "Tomatoe",
+    "shopName": "Farmer's Market",
+    "foodDetails": ["Sweet", "Red", "Delicious"],
+    "backgroundColor": Colors.red.withOpacity(0.1),
+    "price": "1.30"
+  }
+];
+
 final mockedFruitsData = [
   {
     "title": "Banana",
     "shopName": "Tropical Fruits",
-    "details": "Yellow and sweet, perfect for breakfast",
     "imagePath": PngAssets.bannatwo,
     "backgroundColor": Colors.yellow.withOpacity(0.1),
     "foodDetails": ["Yellow", "Sweet", "Potassium-rich"],
@@ -114,7 +156,6 @@ final mockedFruitsData = [
   {
     "title": "Green leaf",
     "shopName": "Green Corner",
-    "details": "Fresh and leafy",
     "imagePath": PngAssets.greenLeaftTwo,
     "backgroundColor": Colors.green.withOpacity(0.1),
     "foodDetails": ["Leafy", "Green", "Healthy"],
@@ -123,7 +164,6 @@ final mockedFruitsData = [
   {
     "title": "Red Tomatoe",
     "shopName": "Tomatoe world",
-    "details": "From good farmers",
     "backgroundColor": Colors.red.withOpacity(0.1),
     "imagePath": PngAssets.tomatoe,
     "foodDetails": ["Red fruit", "Delicious", "Clean"],
@@ -132,7 +172,6 @@ final mockedFruitsData = [
   {
     "title": "Orange",
     "shopName": "Fresh Corner",
-    "details": "100% pure orange",
     "imagePath": PngAssets.orange,
     "backgroundColor": Colors.orange.withOpacity(0.1),
     "foodDetails": ["Orange", "Juicy", "Refreshing"],
@@ -141,7 +180,6 @@ final mockedFruitsData = [
   {
     "title": "Red Apple",
     "shopName": "Farmer's Market",
-    "details": "Crisp and juicy, perfect for snacking",
     "imagePath": PngAssets.appleFruit,
     "backgroundColor": Colors.red.withOpacity(0.2),
     "foodDetails": ["Sweet", "Red", "Crisp"],
@@ -150,7 +188,6 @@ final mockedFruitsData = [
   {
     "title": "Cabbage",
     "shopName": "Brazilian market",
-    "details": "Crispy and nice",
     "imagePath": PngAssets.cabbage,
     "backgroundColor": Colors.green.withOpacity(0.1),
     "foodDetails": ["Good cabbage", "Clean", "Healthy"],

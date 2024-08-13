@@ -9,7 +9,9 @@ import 'package:bento_food_challange/shared/widgets/custom_bottom_nav_bar.dart';
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../shared/constants/mocked_data.dart';
 import '../components/shop_categories_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -125,12 +127,17 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   ShopOffersCarousel(
-                    carouselWidgets: PngAssets.offersList
-                        .map((item) => CardItemOffer(
-                              imagePath: item["image"]!,
-                              title: item["name"]!,
-                              backgroundColor: item["backgroundColor"],
-                            ))
+                    carouselWidgets: fakeoffersList
+                        .map(
+                          (item) => CardItemOffer(
+                            onTap: () {
+                              context.push("/food-info", extra: item);
+                            },
+                            imagePath: item.imagePath,
+                            title: item.title,
+                            backgroundColor: item.backgroundColor,
+                          ),
+                        )
                         .toList(),
                   ).animate().slide(),
                   const SizedBox(
@@ -162,7 +169,10 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Row(
                       children: [
-                        const TitleText(text: "Today's Special").animate().slide(),
+                        const TitleText(text: "Today's Special").animate(
+                            onComplete: (control) {
+                          control.repeat();
+                        }).shimmer(duration: const Duration(seconds: 2)),
                         const Spacer(),
                         GestureDetector(
                           child: Text(

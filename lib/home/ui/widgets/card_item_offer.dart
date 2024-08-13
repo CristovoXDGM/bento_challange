@@ -10,13 +10,15 @@ class CardItemOffer extends StatelessWidget {
       this.title = "avocado",
       this.subtitle = "up to 15% off",
       this.imagePath = "",
-      this.backgroundColor});
+      this.backgroundColor,
+      required this.onTap});
 
   final String dealTitle;
   final String title;
   final String subtitle;
   final String imagePath;
   final Color? backgroundColor;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -29,52 +31,60 @@ class CardItemOffer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Flexible(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                dealTitle,
-                style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.greyTextColor,
-                ),
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              TitleText(text: "Fresh ${title.toUpperCase()}"),
-              const SizedBox(
-                height: 4,
-              ),
-              TitleText(text: subtitle.toUpperCase()),
-              const SizedBox(
-                height: 8,
-              ),
-              FilledButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(AppColors.mainTextColor),
-                ),
-                child: Text(
-                  "Shop Now",
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  dealTitle,
                   style: TextStyle(
                     fontFamily: "Inter",
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: AppColors.primaryActive,
+                    color: AppColors.greyTextColor,
                   ),
+                ).animate(onComplete: (control) {
+                  control.repeat();
+                }).shimmer(duration: Durations.extralong2),
+                const SizedBox(
+                  height: 4,
                 ),
-              )
-            ],
-          )),
+                TitleText(text: "Fresh ${title.toUpperCase()}"),
+                const SizedBox(
+                  height: 4,
+                ),
+                TitleText(text: subtitle.toUpperCase()),
+                const SizedBox(
+                  height: 8,
+                ),
+                FilledButton(
+                  onPressed: onTap,
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(AppColors.mainTextColor),
+                  ),
+                  child: Text(
+                    "Shop Now",
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: AppColors.primaryActive,
+                    ),
+                  ),
+                ).animate(onComplete: (control) {
+                  control.repeat();
+                }).shimmer(duration: const Duration(seconds: 2))
+              ],
+            ),
+          ),
           imagePath.isEmpty
               ? const SizedBox()
               : Flexible(
-                  child: Image.asset(
-                    imagePath,
-                    height: 150,
+                  child: Hero(
+                    tag: title,
+                    child: Image.asset(
+                      imagePath,
+                      height: 150,
+                    ),
                   ),
                 ).animate().scale(
                     duration: const Duration(milliseconds: 400),
