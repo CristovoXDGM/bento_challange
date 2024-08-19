@@ -20,4 +20,4 @@ To match the desired font as close as possible, it was used the `Inter` font fro
 
 For mocked data, it was create a dart file where it has some classes and variables there are beign used to provide info for the fruits and vegetables.
 
-I would like to thank you for the opportunity you are giving me to take part in your selection process. I hope I can pass and join this wonderful team at bento.
+
